@@ -25,6 +25,3 @@ let DRINK_AMOUNT_ADULT = 2000
 let DRINK_AMOUNT_ELDERY = 2000
 nowTime = input.runningTime()
 let userType = USER_TYPE_CHILD
-basic.forever(function () {
-	
-})

@@ -21,6 +21,7 @@ let DRINK_EACH_TIMES = [200, 250, 200]
 let DRINK_PERIODS = [2700, 3600, 2700] // in seconds
 
 let SCREEN_SAVER_PERIOD = 10 // in seconds
+let SCREEN_SAVER_NUM_ICONS = 40
 
 let userType = USER_TYPE_CHILD
 let nextRemindTime = 0
@@ -28,6 +29,7 @@ let nextScreenSaveTime = 0
 let nextShowGoalAchievedTime = 0
 let nextWaitingTime = 0
 let state = 0
+let screenSaverIdx = 0
 let amountDrunk = 0
 
 input.onButtonPressed(Button.A, function () {
@@ -82,7 +84,10 @@ basic.forever(function () {
         {
             nextScreenSaveTime += SCREEN_SAVER_PERIOD*1000
             nextWaitingTime = input.runningTime() + 2000
-            basic.showIcon(10000)
+            basic.showIcon(screenSaverIdx)
+            screenSaverIdx++
+            if (screenSaverIdx>=SCREEN_SAVER_NUM_ICONS)
+                screenSaverIdx = 0 
             state=STATE_SHOW_SCREEN_SAVER
         } else if (input.runningTime()>nextRemindTime) 
         {

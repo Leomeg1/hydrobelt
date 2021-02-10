@@ -18,9 +18,10 @@ let DRINK_GOAL_AMOUNTS = [1600, 2000, 2000]
 let DRINK_EACH_TIMES = [200, 250, 200]
 
 // let DRINK_PERIODS = [2700, 3600, 2700] // in seconds
-let DRINK_PERIODS = [2700, 3600, 2700] // in seconds
+let DRINK_PERIODS = [30, 3600, 2700] // in seconds
 
-let SCREEN_SAVER_PERIOD = 10 // in seconds
+let SCREEN_SAVER_PERIOD = 5 // in seconds
+let SCREEN_SAVER_SHOW_TIME = 1000
 let SCREEN_SAVER_NUM_ICONS = 40
 
 let userType = USER_TYPE_CHILD
@@ -83,7 +84,7 @@ basic.forever(function () {
         if (input.runningTime()>nextScreenSaveTime)
         {
             nextScreenSaveTime += SCREEN_SAVER_PERIOD*1000
-            nextWaitingTime = input.runningTime() + 2000
+            nextWaitingTime = input.runningTime() + SCREEN_SAVER_SHOW_TIME
             basic.showIcon(screenSaverIdx)
             screenSaverIdx++
             if (screenSaverIdx>=SCREEN_SAVER_NUM_ICONS)

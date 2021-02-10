@@ -26,7 +26,7 @@ let userType = USER_TYPE_CHILD
 let nextRemindTime = 0
 let nextScreenSaveTime = 0
 let nextShowGoalAchievedTime = 0
-let nextBackWaitingTime = 0
+let nextWaitingTime = 0
 let state = 0
 let amountDrunk = 0
 
@@ -80,6 +80,9 @@ basic.forever(function () {
     } else if (state == STATE_WAITING) {
         if (input.runningTime()>nextScreenSaveTime)
         {
+            nextScreenSaveTime += SCREEN_SAVER_PERIOD*1000
+            nextWaitingTime = input.runningTime() + 2000
+            basic.showIcon(10000)
             state=STATE_SHOW_SCREEN_SAVER
         } else if (input.runningTime()>nextRemindTime) 
         {
@@ -90,7 +93,11 @@ basic.forever(function () {
         nextRemindTime += DRINK_PERIODS[userType]*1000
         state=STATE_WAITING       
     } else if (state == STATE_SHOW_SCREEN_SAVER) {
-
+        if (input.runningTime()>nextWaitingTime)
+        {
+            basic.clearScreen()
+            state=STATE_WAITING
+        } 
     } else if (state == STATE_SHOW_GOAL_ACHIEVED) {
         basic.clearScreen()
         basic.showString("Goal!"+amountDrunk.toString() + "ml", 100)

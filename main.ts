@@ -32,6 +32,7 @@ let nextShowGoalAchievedTime = 0
 let nextWaitingTime = 0
 let nextRemindTime = 0
 let nextScreenSaveTime = 0
+let STATE_GREET = 0
 let state = 0
 let amountDrunk = 0
 let userType = 0
@@ -65,10 +66,10 @@ let SCREEN_SAVER_PERIOD = 5
 let SCREEN_SAVER_SHOW_TIME = 1000
 let SCREEN_SAVER_NUM_ICONS = 40
 userType = USER_TYPE_CHILD
-amountDrunk = 0
 let screenSaverIdx = 0
+amountDrunk = 0
+state = STATE_GREET
 basic.forever(function () {
-    let STATE_GREET = 0
     if (state == STATE_GREET) {
         basic.showString("HydroBelt!", 100)
 state = STATE_SHOW_USER_TYPE

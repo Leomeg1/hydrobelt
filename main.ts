@@ -34,7 +34,6 @@ let nextRemindTime = 0
 let nextScreenSaveTime = 0
 let state = 0
 let USER_TYPE_CHILD = 0
-let userType = 0
 let DRINK_EACH_TIMES: number[] = []
 let DRINK_GOAL_AMOUNTS: number[] = []
 let USER_TYPE_ELDERLY = 0
@@ -43,8 +42,9 @@ let STATE_SHOW_GOAL_ACHIEVED = 0
 let STATE_WAITING = 0
 let STATE_SHOW_AMOUNT_DRINK = 0
 let STATE_SHOW_USER_TYPE = 0
-let amountDrunk = 0
 let screenSaverIdx = 0
+let amountDrunk = 0
+let userType = 0
 STATE_SHOW_USER_TYPE = 1
 STATE_SHOW_AMOUNT_DRINK = 2
 STATE_WAITING = 3
@@ -59,7 +59,7 @@ DRINK_GOAL_AMOUNTS = [1600, 2000, 2000]
 DRINK_EACH_TIMES = [200, 250, 200]
 // let DRINK_PERIODS = [2700, 3600, 2700] // in seconds
 // in seconds
-let DRINK_PERIODS = [30, 3600, 2700]
+let DRINK_PERIODS = [2700, 3600, 2700]
 // in seconds
 let SCREEN_SAVER_PERIOD = 5
 let SCREEN_SAVER_SHOW_TIME = 1000
